@@ -1,0 +1,36 @@
+﻿@page
+@model ListaCursos.Pages.DetailsModel
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>@Model.Course.Name</h1>
+
+<div class="card">
+    <div class="card-header">
+        Descripción
+    </div>
+    <div class="card-text">
+        @Model.Course.Description
+    </div>
+</div>
+
+<div class="card">
+    <div class="card-header">
+        Autor
+    </div>
+    <div class="card-text">
+        @Model.Course.Author
+    </div>
+</div>
+
+<div class="card">
+    <div class="card-header">
+        Dirección
+    </div>
+    <div class="card-text">
+        @Model.Course.Url
+    </div>
+</div>
+
+<a asp-page="Courses" class="btn btn-primary">Lista de cursos</a>

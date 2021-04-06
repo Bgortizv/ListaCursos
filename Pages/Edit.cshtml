@@ -1,0 +1,38 @@
+﻿@page
+@model ListaCursos.Pages.EditModel
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1 class="card-header">@Model.course.Name</h1>
+<form method="post">
+
+    <input type="hidden" asp-for="@Model.course.id" />
+
+    <div class="form-group">
+        <label asp-for="@Model.course.Name"></label>
+        <input asp-for="@Model.course.Name" class="form-control" />
+        <span class="text-danger" asp-validation-for="course.Name"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="@Model.course.Description"></label>
+        <textarea asp-for="@Model.course.Description" class="form-control"></textarea>
+        <span class="text-danger" asp-validation-for="course.Description"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="@Model.course.Author"></label>
+        <input asp-for="@Model.course.Author" class="form-control" />
+        <span class="text-danger" asp-validation-for="course.Author"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="@Model.course.Url"></label>
+        <input asp-for="@Model.course.Url" class="form-control"/>
+        <span class="text-danger" asp-validation-for="course.Url"></span>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Guardar</button>
+
+</form>
