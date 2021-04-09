@@ -1,47 +1,57 @@
 ﻿@page
 @model ListaCursos.Pages.CoursesModel
 @{
-    ViewData["Title"] = "Courses";
+    ViewData["Title"] = "Cursos";
 }
 
-<h1>Courses</h1>
-
-<form method="get">
-    <div class="form-group">
-        <div class="input-group">
-            <input type="search" 
-                   class="form-control" 
-                   asp-for="buscador"/>
-            <button class="btn btn-light">Buscar</button>
+<h1>Cursos disponibles</h1>
+<section class="jumbotron">
+    <form method="get">
+        <div class="form-group">
+            <div class="input-group">
+                <input type="search"
+                       class="form-control"
+                       asp-for="buscador" />
+                <button class="btn btn-light">Buscar por nombre del curso</button>
+            </div>
         </div>
-    </div>
-</form>
+    </form>
 
-<table>
-    @foreach (var curso in Model.Courses)
-    {
-    <tr>
-        <td>@curso.id</td>
-        <td>@curso.Name</td>
-        <td>@curso.Author</td>
-        <td>
-            <a class="btn btn-link"
-               asp-page="Details"
-               asp-route-id="@curso.id">
-                Ver detalle del curso...
-            </a>
-        </td>
-        <td>
-            <a class="btn btn-link"
-               asp-page="Edit"
-               asp-route-id="@curso.id">
-                Modificar el curso
-            </a>
-        </td>
-    </tr>
-    }
+    <table class="table-bordered table-striped table-responsive-lg">
+        <thead>
+            <tr>
+                <th class="bg-light align-content-center alert-heading">Id del curso</th>
+                <th class="bg-light align-content-center alert-heading">Nombre del Curso</th>
+                <th class="bg-light align-content-center alert-heading">Autor</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var curso in Model.Courses)
+            {
+                <tr>
+                    <td>@curso.id</td>
+                    <td>@curso.Name</td>
+                    <td>@curso.Author</td>
+                    <td>
+                        <a class="btn btn-link"
+                           asp-page="Details"
+                           asp-route-id="@curso.id">
+                            Ver detalle del curso...
+                        </a>
+                    </td>
+                    <td>
+                        <a class="btn btn-link"
+                           asp-page="Edit"
+                           asp-route-id="@curso.id">
+                            Modificar el curso
+                        </a>
+                    </td>
+                </tr>
+            }
 
+        </tbody>
+    </table>
+    <hr />
+    <a asp-page="Edit" class="btn btn-primary">Crear un nuevo curso</a>
 
-</table>
-
-<a asp-page="Edit" class="btn btn-primary">Crear un nuevo curso</a>
+</section>
